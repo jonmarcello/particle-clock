@@ -14,7 +14,7 @@ Vehicle.prototype.behaviours = function() {
     const flee = this.flee(mouse);
     
     arrive.mult(1);
-    flee.mult(5);
+    flee.mult(2);
 
     this.applyForce(arrive)
     this.applyForce(flee);
