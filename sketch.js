@@ -3,12 +3,16 @@ const vehicles = []
 let oldText = ""
 let points = [];
 
-function preload() {
-    font = loadFont('Roboto-Medium.ttf');
+function getTime() {
     const h = hour() < 10 ? `0${hour()}` : hour();
     const m = minute() < 10 ? `0${minute()}` : minute();
     const s = second() < 10 ? `0${second()}` : second();
-    oldText = `${h} : ${m} : ${s}`
+    return `${h} : ${m} : ${s}`
+}
+
+function preload() {
+    font = loadFont('Roboto-Medium.ttf');
+    oldText = getTime()
 }
 
 function updatePoint() {
@@ -32,11 +36,7 @@ function setup() {
 function draw() {
     background(51);
 
-    const h = hour() < 10 ? `0${hour()}` : hour();
-    const m = minute() < 10 ? `0${minute()}` : minute();
-    const s = second() < 10 ? `0${second()}` : second();
-
-    const text = `${h} : ${m} : ${s}`
+    const text = getTime()
 
     if(text !== oldText) {
         oldText = text
